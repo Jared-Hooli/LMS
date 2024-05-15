@@ -1,5 +1,6 @@
 package com.infoway.lms.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,12 +16,6 @@ public class AuthenticationController {
     @Autowired
     private UserService userService;
 
-//    @PostMapping("/login")
-//    public ResponseEntity<AuthenticationResponse> login(@RequestBody LoginRequest loginRequest) {
-//        AuthenticationResponse response = userService.authenticateUser(loginRequest.getUserId(), loginRequest.getPassword());
-//        return ResponseEntity.ok(response);
-//    }
-    
     @PostMapping("/login")
     public ResponseEntity<AuthenticationResponse> login(@RequestBody LoginRequest loginRequest) {
         AuthenticationResponse response = userService.authenticateUser(loginRequest.getUserId(), loginRequest.getPassword());
@@ -30,3 +25,4 @@ public class AuthenticationController {
         return ResponseEntity.ok(response);
     }
 }
+

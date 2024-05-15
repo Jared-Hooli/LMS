@@ -12,24 +12,23 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
-	// Updated Security Configuration Using Spring Security 6.1
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            // Configuring CSRF protection using the new method
+            // Disable CSRF protection for simplicity (not recommended for production)
             .csrf(csrf -> csrf.disable())
-            // Configuring URL authorization
+            // Configure URL authorization
             .authorizeHttpRequests(authz -> authz
-                .requestMatchers("/api/login", "/api/register").permitAll() // Configuring matchers for login and register to be publicly accessible
-                .anyRequest().authenticated() // Ensuring all other requests require authentication
+                .requestMatchers("/api/login", "/api/register").permitAll() // Publicly accessible endpoints
+                .anyRequest().authenticated() // All other requests require authentication
             )
-            // Configuring form login
+            // Configure form login
             .formLogin(form -> form
                 .loginPage("/login") // Custom login page
                 .defaultSuccessUrl("/home", true) // Redirect after successful login
                 .permitAll()
             )
-            // Configuring logout
+            // Configure logout
             .logout(logout -> logout
                 .logoutSuccessUrl("/login?logout") // Redirect after logout
                 .permitAll()
@@ -43,4 +42,3 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
-
