@@ -19,10 +19,9 @@ public class AuthenticationController {
     @PostMapping("/login")
     public ResponseEntity<AuthenticationResponse> login(@RequestBody LoginRequest loginRequest) {
         AuthenticationResponse response = userService.authenticateUser(loginRequest.getUserId(), loginRequest.getPassword());
-        if(response.getStatusCode() == 1) {
+        if(response.getReturnCode() == 1) {
             return ResponseEntity.badRequest().body(response);
         }
         return ResponseEntity.ok(response);
     }
 }
-

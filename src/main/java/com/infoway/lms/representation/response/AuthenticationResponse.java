@@ -1,49 +1,48 @@
 package com.infoway.lms.representation.response;
 
 public class AuthenticationResponse {
-    private String message;
-    private int statusCode;  // Renamed for clarity: Indicates the specific outcome
-    private String details;  // Additional details about the authentication
+    private String user_name;
+    private String user_role;
+    private int return_code;
 
-    public AuthenticationResponse(String message, int statusCode, String details) {
-        this.message = message;
-        this.statusCode = statusCode;
-        this.details = details;
+    public AuthenticationResponse(String user_name, String user_role, int return_code) {
+        this.user_name = user_name;
+        this.user_role = user_role;
+        this.return_code = return_code;
     }
 
     // Getters and Setters
-    public String getMessage() {
-        return message;
+    public String getUserName() {
+        return user_name;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setUserName(String user_name) {
+        this.user_name = user_name;
     }
 
-    public int getStatusCode() {
-        return statusCode;
+    public String getUserRole() {
+        return user_role;
     }
 
-    public void setStatusCode(int statusCode) {
-        this.statusCode = statusCode;
+    public void setUserRole(String user_role) {
+        this.user_role = user_role;
     }
 
-    public String getDetails() {
-        return details;
+    public int getReturnCode() {
+        return return_code;
     }
 
-    public void setDetails(String details) {
-        this.details = details;
+    public void setReturnCode(int return_code) {
+        this.return_code = return_code;
     }
 
     // Optional: Override toString for easy logging
     @Override
     public String toString() {
         return "AuthenticationResponse{" +
-                "message='" + message + '\'' +
-                ", statusCode=" + statusCode +
-                ", details='" + details + '\'' +
+                "user_name='" + user_name + '\'' +
+                ", user_role='" + user_role + '\'' +
+                ", return_code=" + return_code +
                 '}';
     }
 }
-

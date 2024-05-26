@@ -15,22 +15,18 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            // Disable CSRF protection for simplicity (not recommended for production)
-            .csrf(csrf -> csrf.disable())
-            // Configure URL authorization
+            .csrf(csrf -> csrf.disable()) // Disabling CSRF for simplicity (ensure it's secured for production)
             .authorizeHttpRequests(authz -> authz
-                .requestMatchers("/api/login", "/api/register").permitAll() // Publicly accessible endpoints
-                .anyRequest().authenticated() // All other requests require authentication
+                .requestMatchers("/login", "/api/login", "/api/courses/**").permitAll() // Ensure login and specified API endpoints are publicly accessible
+                .anyRequest().authenticated() // Secure all other requests
             )
-            // Configure form login
             .formLogin(form -> form
-                .loginPage("/login") // Custom login page
-                .defaultSuccessUrl("/home", true) // Redirect after successful login
+                .loginPage("/login") // Ensure this is pointing to a valid login view or controller
+                .defaultSuccessUrl("/home", true) // Redirect to home on success
                 .permitAll()
             )
-            // Configure logout
             .logout(logout -> logout
-                .logoutSuccessUrl("/login?logout") // Redirect after logout
+                .logoutSuccessUrl("/login?logout")
                 .permitAll()
             );
 

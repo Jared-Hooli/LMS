@@ -33,15 +33,14 @@ public class UserService {
                     .orElseThrow(() -> new UsernameNotFoundException("Password not set for user: " + username));
 
             if (!passwordEncoder.matches(password, userPassword.getPasswordHash())) {
-                return new AuthenticationResponse("Authentication failed", 1, "Invalid password");
+                return new AuthenticationResponse(username, "Invalid password", 1);
             }
 
-            String role = user.getUserRole().equals("P") ? "Privileged" : "Normal";
+            String role = user.getUserRole().equals("P") ? "Privileged user" : "Normal user";
             int returnCode = user.getUserRole().equals("P") ? 3 : 2;
-            return new AuthenticationResponse("Authentication successful", returnCode, "User role: " + role);
+            return new AuthenticationResponse(user.getUserName(), role, returnCode);
         } catch (UsernameNotFoundException ex) {
-            return new AuthenticationResponse("Authentication failed", 1, ex.getMessage());
+            return new AuthenticationResponse(username, ex.getMessage(), 1);
         }
     }
 }
-
