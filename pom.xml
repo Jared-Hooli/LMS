@@ -9,11 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	
-	<groupId>com.infoway.lms</groupId>
+	<groupId>com.infoway</groupId>
 	<artifactId>LMS</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>LMS</name>
-	<description>Infoway LMS Project</description>
+	<description>Infoway Learning Management System Project</description>
 	
 	<properties>
 		<java.version>11</java.version>

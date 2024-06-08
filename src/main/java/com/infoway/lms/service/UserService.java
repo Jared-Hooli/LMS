@@ -6,9 +6,9 @@ import org.springframework.stereotype.Service;
 
 import com.infoway.lms.dao.UserPasswordRepository;
 import com.infoway.lms.dao.UserRepository;
+import com.infoway.lms.dto.response.AuthenticationResponse;
 import com.infoway.lms.model.User;
 import com.infoway.lms.model.UserPassword;
-import com.infoway.lms.representation.response.AuthenticationResponse;
 
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 

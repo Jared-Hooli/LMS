@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.infoway.lms.representation.response.GetAssignedCoursesResponse;
+import com.infoway.lms.dto.response.GetAssignedCoursesResponse;
 import com.infoway.lms.service.CourseService;
 
 import java.util.List;

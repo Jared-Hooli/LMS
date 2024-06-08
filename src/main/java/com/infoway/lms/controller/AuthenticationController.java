@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.infoway.lms.representation.request.LoginRequest;
-import com.infoway.lms.representation.response.AuthenticationResponse;
+import com.infoway.lms.dto.request.LoginRequest;
+import com.infoway.lms.dto.response.AuthenticationResponse;
 import com.infoway.lms.service.UserService;
 
 @RestController

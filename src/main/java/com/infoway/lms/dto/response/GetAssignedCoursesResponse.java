@@ -1,4 +1,4 @@
-package com.infoway.lms.representation.response;
+package com.infoway.lms.dto.response;
 
 import java.util.Date;
 

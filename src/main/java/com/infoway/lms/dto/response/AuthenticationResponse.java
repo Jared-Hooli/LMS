@@ -1,4 +1,4 @@
-package com.infoway.lms.representation.response;
+package com.infoway.lms.dto.response;
 
 public class AuthenticationResponse {
     private String user_name;

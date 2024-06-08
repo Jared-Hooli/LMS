@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.infoway.lms.dao.AssignedCourseRepository;
+import com.infoway.lms.dto.response.GetAssignedCoursesResponse;
 import com.infoway.lms.model.AssignedCourse;
-import com.infoway.lms.representation.response.GetAssignedCoursesResponse;
 
 import java.util.List;
 import java.util.stream.Collectors;

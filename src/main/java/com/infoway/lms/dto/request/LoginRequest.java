@@ -1,4 +1,4 @@
-package com.infoway.lms.representation.request;
+package com.infoway.lms.dto.request;
 
 public class LoginRequest {
     private String userId; // User ID which is the email address
