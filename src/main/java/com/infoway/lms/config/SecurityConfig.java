@@ -18,6 +18,7 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable()) // Disabling CSRF for simplicity (ensure it's secured for production)
             .authorizeHttpRequests(authz -> authz
                 .requestMatchers("/login", "/api/login", "/api/courses/**").permitAll() // Ensure login and specified API endpoints are publicly accessible
+                .requestMatchers("/actuator/**").permitAll() // Secure Actuator endpoints
                 .anyRequest().authenticated() // Secure all other requests
             )
             .formLogin(form -> form
